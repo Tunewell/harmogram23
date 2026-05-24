@@ -17,7 +17,7 @@
     CustomTrack.prototype.initialize = function(src) {
       this.src = src.track;
       this.index = src.index;
-      this.url = "http://api.soundcloud.com/tracks/" + this.src + "/stream?client_id=c280d0c248513cfc78d7ee05b52bf15e";
+      this.url = this.src;
       return this.render();
     };
 

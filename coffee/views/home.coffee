@@ -6,6 +6,20 @@ class Sounder.Views.Home extends Backbone.View
   # Define main element to attach to
   el: "body"
 
+  localTracks: [
+    {
+      title: 'Sample Audio 1'
+      user: username: 'Local Source'
+      artwork_url: ''
+      audio_src: 'https://archive.org/download/testmp3testfile/mpthreetest.mp3'
+    }
+    {
+      title: 'Sample Audio 2'
+      user: username: 'Local Source'
+      artwork_url: ''
+      audio_src: 'https://archive.org/download/testmp3testfile/mpthreetest.mp3'
+    }
+  ]
 
   events:
     'click .menu__item': 'handleMenu'
@@ -43,12 +57,9 @@ class Sounder.Views.Home extends Backbone.View
 
 
   fetchTracks: (url) ->
-    SC.get('/tracks',
-      genres: url
-    ).then (res) =>
-      @tracks.reset(res)
-      @render()
-      @renderTracks()
+    @tracks.reset(@localTracks)
+    @render()
+    @renderTracks()
 
 
   handleHoverOut: (e) ->

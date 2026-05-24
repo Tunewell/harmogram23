@@ -6,4 +6,4 @@
     <h2 class="track__title"><%= @model.get('title') %></h2>
   </div>
 
-  <audio id="source<%= @model.trackIndex %>" preload='none' data-track-index="<%= @model.trackIndex %>" src="<%= @model.get('stream_url') %>?client_id=c280d0c248513cfc78d7ee05b52bf15e" ></audio>
+  <audio id="source<%= @model.trackIndex %>" preload='none' data-track-index="<%= @model.trackIndex %>" src="<% if @model.get('audio_src') %><%= @model.get('audio_src') %><% else %><%= @model.get('stream_url') %>?client_id=c280d0c248513cfc78d7ee05b52bf15e<% end %>" ></audio>

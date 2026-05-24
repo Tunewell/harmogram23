@@ -14,6 +14,24 @@
 
     Home.prototype.el = "body";
 
+    Home.prototype.localTracks = [
+      {
+        title: 'Sample Audio 1',
+        user: {
+          username: 'Local Source'
+        },
+        artwork_url: '',
+        audio_src: 'https://archive.org/download/testmp3testfile/mpthreetest.mp3'
+      }, {
+        title: 'Sample Audio 2',
+        user: {
+          username: 'Local Source'
+        },
+        artwork_url: '',
+        audio_src: 'https://archive.org/download/testmp3testfile/mpthreetest.mp3'
+      }
+    ];
+
     Home.prototype.events = {
       'click .menu__item': 'handleMenu',
       'hover #track-list': 'handleHoverOut',
@@ -46,15 +64,9 @@
     };
 
     Home.prototype.fetchTracks = function(url) {
-      return SC.get('/tracks', {
-        genres: url
-      }).then((function(_this) {
-        return function(res) {
-          _this.tracks.reset(res);
-          _this.render();
-          return _this.renderTracks();
-        };
-      })(this));
+      this.tracks.reset(this.localTracks);
+      this.render();
+      return this.renderTracks();
     };
 
     Home.prototype.handleHoverOut = function(e) {
