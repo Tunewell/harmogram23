@@ -433,9 +433,14 @@ JST['track'] = function(__obj) {
     
       __out.push('" src="');
     
-      __out.push(__sanitize(this.model.get('stream_url')));
+      if (this.model.get('audio_src')) {
+        __out.push(__sanitize(this.model.get('audio_src')));
+      } else {
+        __out.push(__sanitize(this.model.get('stream_url')));
+        __out.push('?client_id=c280d0c248513cfc78d7ee05b52bf15e');
+      }
     
-      __out.push('?client_id=c280d0c248513cfc78d7ee05b52bf15e" ></audio>\n');
+      __out.push('" ></audio>\n');
     
     }).call(this);
     

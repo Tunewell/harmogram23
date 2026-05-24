@@ -8,7 +8,7 @@ class Sounder.Views.CustomTrack extends Backbone.View
   initialize: (src) ->
     @src = src.track
     @index = src.index
-    @url = "http://api.soundcloud.com/tracks/#{@src}/stream?client_id=c280d0c248513cfc78d7ee05b52bf15e"
+    @url = @src
     @render()
 
 
